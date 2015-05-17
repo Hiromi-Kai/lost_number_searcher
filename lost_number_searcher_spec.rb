@@ -1,5 +1,3 @@
-require 'rspec'
-
 require './lost_number_searcher'
 
 def get_test_data
