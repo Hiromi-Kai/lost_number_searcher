@@ -23,19 +23,20 @@ module LostNumberSearcher
 
     def self.binary_search(data, offset = 0)
       index = get_search_index(data.length)
-      
-      if data[index] == index + offset+ 1 && data[index + 1] != index + offset + 2
-        return index + 2 + offset
+      search_data = index + offset+ 1
+
+      if data[index] == search_data && data[index + 1] != search_data + 1
+        return search_data + 1
       end
-      if data[index] == index + offset + 1
-        binary_search(data[(index + 1)..-1], index + 1 + offset)
+      if data[index] == search_data
+        binary_search(data[(index + 1)..-1], search_data)
       else
         binary_search(data[0...index],offset)
       end
     end
 
     def self.get_search_index(length)
-      length.even? ? (length / 2)  : (length - 1) /2
+      length.even? ? (length / 2)  : (length - 1) / 2
     end
   end
 end
