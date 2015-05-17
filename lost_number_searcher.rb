@@ -17,9 +17,14 @@ module LostNumberSearcher
 
   # ソートして二分探索で探す
   module SearchAlgorithm extend self
+
+    public
+
     def search(data)
       binary_search(data.sort)
     end
+
+    private
 
     # 再帰的に二分探索してデータを絞り込む
     # データを二分割する過程で配列のindexと実データがずれる分をoffsetで補正する
