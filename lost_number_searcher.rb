@@ -27,6 +27,7 @@ module LostNumberSearcher
       index = get_search_index(data.length)
       correct_data = index + offset + 1
 
+      return 1 if index == 0 && data[index] == 2
       return correct_data + 1 if data[index] == correct_data && data[index + 1] != correct_data + 1
 
       if data[index] == correct_data
