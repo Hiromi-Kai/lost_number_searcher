@@ -21,6 +21,8 @@ module LostNumberSearcher
       binary_search(data.sort)
     end
 
+    # 再帰的に二分探索してデータを絞り込む
+    # データを二分割する過程で配列のindexと実データがずれる分をoffsetで補正する
     def self.binary_search(data, offset = 0)
       index = get_search_index(data.length)
       correct_data = index + offset+ 1
