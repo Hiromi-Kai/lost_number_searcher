@@ -25,9 +25,8 @@ module LostNumberSearcher
       index = get_search_index(data.length)
       search_data = index + offset+ 1
 
-      if data[index] == search_data && data[index + 1] != search_data + 1
-        return search_data + 1
-      end
+      return search_data + 1 if detect_lost_number?(data, index, search_data)
+
       if data[index] == search_data
         binary_search(data[(index + 1)..-1], search_data)
       else
@@ -37,6 +36,10 @@ module LostNumberSearcher
 
     def self.get_search_index(length)
       length.even? ? (length / 2)  : (length - 1) / 2
+    end
+
+    def self.detect_lost_number?(data, index, search_data)
+      data[index] == search_data && data[index + 1] != search_data + 1
     end
   end
 end
