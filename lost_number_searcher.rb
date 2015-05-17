@@ -9,7 +9,7 @@ module LostNumberSearcher
   end
 
   # Ruby標準の差集合計算
-  module RelativeComplement
+  module RelativeComplementAlgorithm
     def self.search(data)
       ((1..10000).to_a - data).first
     end

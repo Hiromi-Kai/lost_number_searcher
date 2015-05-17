@@ -18,7 +18,7 @@ describe LostNumberSearcher do
 
   context '差集合方式' do
     it '正常に検索ができる' do
-      result = LostNumberSearcher::RelativeComplement.search input[:data]
+      result = LostNumberSearcher::RelativeComplementAlgorithm.search input[:data]
       expect(result).to eq(input[:lost_number])
     end
   end
